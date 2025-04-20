@@ -1,152 +1,109 @@
+
 # 📚 Book Recommender System
 
-Welcome to the **Book Recommender System**! This project is a Streamlit-based application that provides personalized book recommendations using a k-Nearest Neighbors (kNN) model, and a collaborative filtering approach via SVD.
+Bienvenue sur notre projet de système de recommandation de livres !  
+Ce projet a été développé dans le cadre d’un projet de certification en data science.
 
 ---
 
-## 🔍 Features
+## 🎯 Objectif
 
-### 🔢 General Statistics
-- Displays the total number of books and users in the dataset.
-
-### 🎮 Popular Books
-- Shows the most popular books based on the number of ratings.
-
-### 🌟 Top-Rated Books
-- Highlights the top-rated books in the dataset.
-
-### 🔍 Recommendations
-- Provides book recommendations based on user selection.
-- Allows users to rate recommendations and save their feedback.
-
-### 🕵️‍♂️ Advanced Search
-- Search for books by keywords.
-
-### 🌐 Random Book Discovery
-- Discover a random book from the dataset.
-
-### 🎨 Visualizations
-- View distributions of ratings and user interactions with books.
+Créer une application capable de recommander des livres à un utilisateur en fonction :
+- De ses lectures passées (collaborative filtering)
+- Ou de livres similaires (content-based filtering)
+- Avec une interface simple et intuitive via Streamlit
 
 ---
 
-## 💪 Technologies Used
+## 🧠 Technologies utilisées
 
-- **Streamlit**: For building the web-based user interface.
-- **scikit-learn**: For implementing the kNN recommendation algorithm.
-- **pandas**: For data manipulation.
-- **plotly**: For creating interactive visualizations.
-- **pickle**: For saving and loading the pre-trained model and datasets.
-- **SVD (Singular Value Decomposition)**: For collaborative filtering-based recommendations.
-
----
-
-## 🚀 How to Run the Application
-
-### Prerequisites
-
-- Python 3.9 or later
-- Required Python libraries (listed in `requirements.txt`):
-
-### Steps to Run
-
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/your-username/book-recommender-system.git
-   cd book-recommender-system
-   ```
-
-2. Install the dependencies:
-   ```bash
-   pip install -r requirements.txt
-   ```
-
-3. Place the required data and model files in the `artifacts/` directory:
-   - `knn_model.pkl`
-   - `svd_model.pkl`
-   - `book_titles.pkl`
-   - `book_df.pkl`
-
-4. Run the Streamlit app:
-   ```bash
-   streamlit run app.py
-   ```
-
-5. Open your web browser and navigate to `http://localhost:8501`.
+- **Python** (Pandas, NumPy, Scikit-Learn)
+- **Streamlit** pour l’interface utilisateur
+- **Pandas** pour la manipulation des données
+- **Git/GitHub** pour le versionning
+- **Jupyter Notebook / VS Code** pour le développement
 
 ---
 
-## 🌄 File Structure
+## 📁 Structure du projet
 
 ```
-book-recommender-system/
-├── app.py                        # Main application script  
-├── utils.py                      # Functions library
-├── tabs/                         # Tabs functions library
-│   ├── tab0.py
-│   ├── tab1.py
-│   ├── tab2.py
-│   ├── tab3.py
-│   ├── tab4.py
-│   ├── tab5.py
-│   └── tab6.py
-├── artifacts/                    # Contains model and dataset files
-│   ├── svd_model.pkl             # Trained SVD model
-│   ├── knn_model.pkl            # Trained KNN model
-│   ├── book_df.pkl              # Book DataFrame
-│   └── book_titles.pkl          # Titles of the books
-├── data/                         # Raw and cleaned datasets
-│   ├── dataset.csv              # Raw dataset with book info
-│   ├── Ratings.csv              # Ratings data
-│   ├── dataset_with_details.csv # Extended dataset
-│   ├── cleaned_data.csv         # Preprocessed dataset
-│   ├── Users.csv                # User data
-│   └── Books.csv                # Book data
-├── scrapper/                     # Scraping scripts
-│   ├── scrapper.py              # Main scraping script
-│   └── scrapper_cache_check.py  # Script to verify cached data
-├── notebooks/                    # Jupyter notebooks for model training and analysis
-│   ├── base.ipynb               # Basic EDA notebook
-├── Dockerfile                    # Docker configuration file
-├── train.py                      # Script for training the recommendation model
-├── requirements.txt              # Dependencies for the project
-├── runtime.txt                   # Specifies Python version for deployment
-├── README.md                     # Project documentation
-├── LICENSE                       # License information
-└── .gitignore                    # Git ignore file
+├── notebook/                   # Notebooks d'analyse et de préparation
+├── scripts/                    # Fonctions Python de recommandation
+├── app/                        # Script Streamlit (app.py)
+├── data/                       # Données de notation et de métadonnées
+├── images/                     # Captures d'écran (voir plus bas)
+└── README.md                   # Ce fichier
 ```
 
-### Description of Key Files
+---
 
-- **artifacts/**: Contains all the generated artifacts from the training process, including the trained models and processed data.
-- **data/**: Directory for raw and cleaned datasets.
-- **scrapper/**: Contains the scraping scripts used to collect book and user data.
-- **notebooks/**: Jupyter notebooks for exploratory data analysis (EDA) and model training.
-- **Dockerfile**: Used for containerizing the application.
-- **app.py**: The main application file for deploying the recommendation engine.
-- **requirements.txt**: Lists all the Python dependencies required for the project.
-- **runtime.txt**: Specifies the runtime environment for deployment (e.g., Python version).
-- **train.py**: A standalone Python script for training the recommendation engine model.
+## 💡 Fonctionnalités principales
+
+- 🔐 Connexion utilisateur (identifiant ou invité)
+- 📚 Recommandations personnalisées basées sur l’historique
+- 🔍 Recommandations à partir d’un livre donné
+- 🌟 Section livres les plus populaires
+- 🏆 Section livres les mieux notés
+- 🔎 Recherche et affichage par titre
+- 🖼️ Affichage des couvertures + descriptions (si disponibles)
 
 ---
 
-## 🎨 Screenshots
+## 📸 Aperçu du système de recommandation
 
-### 🌐 Home Page
-![Home Page](https://via.placeholder.com/600x300)
+### 🔐 Connexion utilisateur
+![Login](images/1_login_user.png)
 
-### 🔍 Recommendations
-![Recommendations](https://via.placeholder.com/600x300)
+### 📚 Recommandations personnalisées
+![User Recommendations](images/2_user_recommendations.png)
 
-### 🎨 Visualizations
-![Visualizations](https://via.placeholder.com/600x300)
+### 🔍 Rechercher un livre similaire
+![Search](images/3_search_by_book.png)
+
+### 🌟 Livres populaires
+![Popular Books](images/4_popular_books.png)
+
+### 🏆 Livres les mieux notés
+![Top Rated Books](images/5_top_rated_books.png)
 
 ---
 
-## ⚖️ License
+## 🚀 Lancer l’application
 
-This project is licensed under the MIT License. See the `LICENSE` file for details.
+1. Cloner le repo :
+```bash
+git clone https://github.com/charlesdab/final_group_project_book_recommender.git
+cd final_group_project_book_recommender
+```
+
+2. Installer les dépendances :
+```bash
+pip install -r requirements.txt
+```
+
+3. Lancer l’application Streamlit :
+```bash
+streamlit run app/app.py
+```
 
 ---
 
-Thank you for exploring the Book Recommender System! 🚀
+## 👥 Auteurs
+
+Projet réalisé en groupe dans le cadre de la formation Data Scientist – Jedha Bootcamp.  
+Merci à tous les membres de l’équipe pour leur travail collaboratif.
+
+---
+
+## 📝 Améliorations possibles
+
+- Ajouter un système de feedback utilisateur
+- Filtrer par genre / auteur / langue
+- Déployer l’application en ligne (ex: Streamlit Cloud)
+
+---
+
+## 🔗 Liens
+
+- [Lien vers le projet GitHub](https://github.com/charlesdab/final_group_project_book_recommender)
